@@ -55,7 +55,6 @@ const Form = () => {
   const isLogin = pageType === "login";
   const isRegister = pageType === "register";
 
-
   const register = async (values, onSubmitProps) => {
     // this allows us to send form info with image
     const formData = new FormData();
@@ -96,14 +95,13 @@ const Form = () => {
       );
       navigate("/home");
     }
-  }; 
-
+  };
 
   const handleFormSubmit = async (values, onSubmitProps) => {
     if (isLogin) await login(values, onSubmitProps);
     if (isRegister) await register(values, onSubmitProps);
   };
-    
+
   return (
     <Formik
       onSubmit={handleFormSubmit}
