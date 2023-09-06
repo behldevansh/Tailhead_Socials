@@ -1,7 +1,9 @@
 //npm run start
 
-Tech Used:
+client port-3000 || 5000
+server port-3001
 
+Tech Used:
 Mongo DB
 Express JS
 React JS
@@ -11,6 +13,7 @@ Redux toolkit for state management
 Redux persist for local storage
 React router for routing
 Multer for file upload
+Bcrypt turns a simple password into fixed-length characters called a hash.
 
 Steps to use:
 //backend steps

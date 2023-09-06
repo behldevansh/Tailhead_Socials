@@ -1,33 +1,19 @@
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";  //Bcrypt turns a simple password into fixed-length characters called a hash.
+import jwt from "jsonwebtoken";   //client-server secure connection
 import User from "../models/User.js";
 
-/* REGISTER USER */
+//register user
 export const register = async (req, res) => {
   try {
     const {
-      firstName,
-      lastName,
-      email,
-      password,
-      picturePath,
-      friends,
-      location,
-      occupation,
+      firstName,lastName,email,password,picturePath,friends,location,occupation,
     } = req.body;
 
-    const salt = await bcrypt.genSalt();
+    const salt = await bcrypt.genSalt();   //hashing function salt and passowrdbash
     const passwordHash = await bcrypt.hash(password, salt);
 
     const newUser = new User({
-      firstName,
-      lastName,
-      email,
-      password: passwordHash,
-      picturePath,
-      friends,
-      location,
-      occupation,
+      firstName,lastName,email,password: passwordHash,picturePath,friends,location,occupation,
       viewedProfile: Math.floor(Math.random() * 10000),
       impressions: Math.floor(Math.random() * 10000),
     });
@@ -38,7 +24,7 @@ export const register = async (req, res) => {
   }
 };
 
-/* LOGGING IN */
+//login
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
