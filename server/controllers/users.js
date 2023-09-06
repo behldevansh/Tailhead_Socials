@@ -1,6 +1,6 @@
 import User from "../models/User.js";
 
-/* READ */
+//read
 export const getUser = async (req, res) => {
   try {
     const { id } = req.params;
@@ -13,12 +13,11 @@ export const getUser = async (req, res) => {
 
 export const getUserFriends = async (req, res) => {
   try {
-    const { id } = req.params;
+    const {id} = req.params;
     const user = await User.findById(id);
-
     const friends = await Promise.all(
-      user.friends.map((id) => User.findById(id))
-    );
+      user.friends.map((id) => User.findById(id))          //mapping users info
+    ); 
     const formattedFriends = friends.map(
       ({ _id, firstName, lastName, occupation, location, picturePath }) => {
         return { _id, firstName, lastName, occupation, location, picturePath };
@@ -30,7 +29,7 @@ export const getUserFriends = async (req, res) => {
   }
 };
 
-/* UPDATE */
+//update
 export const addRemoveFriend = async (req, res) => {
   try {
     const { id, friendId } = req.params;
@@ -47,7 +46,7 @@ export const addRemoveFriend = async (req, res) => {
     await user.save();
     await friend.save();
 
-    const friends = await Promise.all(
+    const friends = await Promise.all(         //asynchronous formation
       user.friends.map((id) => User.findById(id))
     );
     const formattedFriends = friends.map(
