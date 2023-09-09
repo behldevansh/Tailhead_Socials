@@ -24,8 +24,9 @@ const AdvertWidget = () => {
         style={{ borderRadius: "0.75rem", margin: "0.75rem 0" }}
       />
       <FlexBetween>
-        <Typography color={main}>github</Typography>
-        <Typography color={medium}>github.com</Typography>
+        <Typography color={main}>Lakmé Cosmetics
+</Typography>
+        <Typography color={medium}>lakmeindia.com</Typography>
       </FlexBetween>
       <Typography color={medium} m="0.5rem 0">
         You know what we do. We do it well.

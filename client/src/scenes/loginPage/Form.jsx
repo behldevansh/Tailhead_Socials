@@ -227,7 +227,7 @@ const Form = () => {
             />
           </Box>
 
-          {/* BUTTONS */}
+{/* buttons */}
           <Box>
             <Button
               fullWidth
